@@ -4,6 +4,11 @@ description: 在webug3.0的测试平台上测试后所写的一些测试笔记
 date: 2019-02-25 15:32:06
 ---
 
+## 下载部署
+
++ WeBug3.0
+  - 下载：[https://pan.baidu.com/s/1Cz_H0GuudtuINGjSb0ZhPg](https://pan.baidu.com/s/1Cz_H0GuudtuINGjSb0ZhPg)  提取码: yug8
+
 ## 第一关-很简单的一个注入
 
 > 普通的GET注入
