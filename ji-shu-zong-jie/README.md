@@ -2,5 +2,3 @@
 
 
 
-{% file src="../.gitbook/assets/rulesmd.ini" %}
-
