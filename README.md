@@ -1,6 +1,5 @@
-
 ---
-description: "Hi there \U0001F44B This is Ashen(阿沈) from China, base on ShenZhen."
+description: "Hi there \U0001F44B This is **Ashen**(**阿沈**) from China, base on ShenZhen."
 ---
 
 # 个人博客
@@ -15,10 +14,4 @@ description: "Hi there \U0001F44B This is Ashen(阿沈) from China, base on Shen
 * 📫 You can find me on 
   * Blog : [https://ashen114.github.io/](https://ashen114.github.io/)
   * Email: 1215772764@qq.com / guxs2016@gmail.com
-
-![https://github-readme-stats.vercel.app/api/pin/?username=ashen114&amp;repo=ashen114.github.io](https://github-readme-stats.vercel.app/api/pin/?username=ashen114&repo=ashen114.github.io) ![https://github-readme-stats.vercel.app/api/pin/?username=ashen114&amp;repo=CodingFun](https://github-readme-stats.vercel.app/api/pin/?username=ashen114&repo=CodingFun)
-
-* plan📅:
-* \[\] 前端性能优化（ing）
-* \[\] webpack原理
 

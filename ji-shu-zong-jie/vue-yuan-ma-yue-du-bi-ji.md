@@ -491,11 +491,11 @@ patt1.exec(str); // 返回null
 
 exec 例子：
 
-![exec&#x4F8B;&#x5B50;](../.gitbook/assets/2019-12-18-20-26-47.png)
+![exec&#x4F8B;&#x5B50;](../.gitbook/assets/2019-12-18-20-26-47%20%281%29.png)
 
 exec 解释：[参考文档](https://www.w3school.com.cn/jsref/jsref_exec_regexp.asp)
 
-![](../.gitbook/assets/2019-12-18-20-27-59.png)
+![](../.gitbook/assets/2019-12-18-20-27-59%20%281%29.png)
 
 ```javascript
 let str = "test123ABC";
