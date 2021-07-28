@@ -1,0 +1,175 @@
+---
+title: 咫尺技术分享会-闭包
+description: 第一次技术分享会
+date: '2020-10-14T14:26:02.000Z'
+---
+
+# 前端技术分享会-闭包
+
+> 咫尺技术分享会 - 闭包
+
+## 闭包的理解
+
+数据类型：7 种 = 基本数据类型（Number、String 、Boolean、Null、Undefined 及 ES6 新增的 Symbol 类型） + 复杂数据类型（Object：普通对象，数组对象，正则对象，Data 日期对象及 ES6 新增的 Set，Map 等等）
+
+js 能在浏览器所提供的 ECStack（Execution Context Stack）执行环境栈中运行
+
+基本类型直接存到栈，引用数据类型则需要先开辟一个单独的堆内存，把对象的键值对存储到堆内存，暴露十六进制的地址，将地址放到栈中，创建变量后，再将变量与地址关联起来。
+
+闭包：当前函数执行，形成一个私有的上下文函数执行完，当前私有上下文的某些内容，被上下文以外的的内容所占用，那么当前上下文就不能被释放，形成闭包（保护私有变量不被销毁）
+
+![](../../.gitbook/assets/2020-10-14-21-52-53.jpg)
+
+### 闭包练习
+
+```javascript
+function fn(a) {
+  // 按照作用域链，往上查找，覆写了全局的fn
+  fn = function (b) {
+    console.log(a + b++);
+  };
+  console.log(a++);
+}
+fn(1); // 每个函数执行都会形成一个全新的私有上下文作用域
+fn(2); // a:2
+fn(3); // a:2
+```
+
+```javascript
+function fn1(who) {
+  let i = 2;
+  return function fn2() {
+    // 暴露出去被a/b引用，无法被销毁，形成闭包
+    console.log(`${who}-fn2-i:`, ++i);
+    // let j = 2;
+    // function fn3() { // 每次都重新创建了新的fn3堆栈，因此没有形成闭包
+    //   console.log(`${who}--fn3-j:`, ++j);
+    // }
+    // fn3();
+    console.log("----");
+  };
+}
+var a = fn1("a"); // 函数堆被保留
+a();
+a();
+var b = fn1("b");
+b();
+b();
+a();
+```
+
+```javascript
+function fn1() {
+  let n = 0;
+  this.sum = function () {
+    console.log(++n);
+  };
+}
+
+new fn1().sum(); // 每次创建新的，不会形成闭包
+let a = new fn1(); // 被全局变量a所引用，形成闭包
+a.sum();
+a.sum();
+a.sum();
+a.sum();
+```
+
+### 闭包的作用
+
+```javascript
+// 获取数组某区间
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let a = arr.filter((i)=>i>=3&&i<=9);
+// console.log('a:', a);
+// let b = arr.filter((i)=>i>=6&&i<=10);
+// console.log('b:', b);
+
+function between(m, n) {
+  return function (i) {
+    return i >= m && i <= n;
+  };
+}
+console.log("a:", arr.filter(between(3, 9)));
+
+// between 执行后，m和n被赋值，子函数因为闭包特性会取得父级的m和n
+```
+
+```javascript
+// 数组排序
+
+let list = [
+  {
+    name: "a",
+    age: 20,
+    score: 90,
+  },
+  {
+    name: "b",
+    age: 30,
+    score: 60,
+  },
+  {
+    name: "c",
+    age: 25,
+    score: 80,
+  },
+];
+
+// let old = list.sort((a,b)=>a.age-b.age);
+// console.table(old);
+
+// let score = list.sort((a,b)=>a.score-b.score);
+// console.table(score);
+
+function order(field){
+  return function(a,b){
+    return a[field] - b[field]
+  }
+}
+let old = list.sort(order('age'));
+console.table(old);
+```
+
+### 闭包的注意事项
+
+1. 内存泄露
+
+```markup
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内存泄漏</title>
+  </head>
+
+  <body>
+    <div desc="test-1">测试1</div>
+    <div desc="test-2">测试2</div>
+    <script>
+      let divs = document.querySelectorAll("div");
+      divs.forEach(function (item) {
+        item.addEventListener("click", function () {
+          // 此处可以访问到外部的item，item一直被保留在内存中，当div过多时，会导致内存泄漏
+          console.log("item:", item);
+          // 打印desc
+          console.log("item.getAttribute(desc):", item.getAttribute("desc"));
+        });
+      });
+
+      // 改为如下
+      divs.forEach(function (item) {
+        // 外部定义需要被打印的desc
+        let desc = item.getAttribute("desc");
+        item.addEventListener("click", function () {
+          console.log("item.getAttribute(desc):", desc);
+          // 再次触发click，此时item已被null
+          console.log("item:", item);
+        });
+        item = null; // 将item赋值为null，触发js的回收
+      });
+    </script>
+  </body>
+</html>
+```
+
