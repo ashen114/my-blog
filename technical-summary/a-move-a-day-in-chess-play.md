@@ -443,7 +443,7 @@ return (
 
 [webpack 构建过程](https://mp.weixin.qq.com/s/PlqhRNZNIfBJHSVoVD3fHw)
 
-![](../.gitbook/assets/2021-05-07-11-13-01%20%281%29.png)
+![](../.gitbook/assets/2021-05-07-11-13-01.png)
 
 ### webpack 的 loader
 
@@ -1334,7 +1334,7 @@ intersectionObserver.observe(document.querySelector('.scrollerFooter'))
 
 ### 浮点精度丢失
 
-[浮点精度丢失](ri-gong-yi-zu.md)
+[浮点精度丢失](a-move-a-day-in-chess-play.md)
 
 > 涉及：二进制...
 
@@ -3104,7 +3104,7 @@ let person = new Person('person')
 
 ![](../.gitbook/assets/2021-04-18-21-21-09.png)
 
-![](../.gitbook/assets/2021-04-26-14-48-31%20%281%29.png)
+![](../.gitbook/assets/2021-04-26-14-48-31.png)
 
 ```javascript
 // 每个对象的 __proto__ 都指向它的构造函数的原型对象prototype

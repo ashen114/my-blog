@@ -38,11 +38,11 @@ date: '2020-04-21T16:58:51.000Z'
 
 在`src\manifest.json`中配置相关的模块，若是HBuilderX，则如下：
 
-![](../.gitbook/assets/2020-04-21-16-31-55%20%281%29.png)
+![](../.gitbook/assets/2020-04-21-16-31-55.png)
 
 然后在下图所示中进行对应的配置：
 
-![](../.gitbook/assets/2020-04-21-16-33-19%20%281%29.png)
+![](../.gitbook/assets/2020-04-21-16-33-19.png)
 
 ### 插件
 
@@ -54,7 +54,7 @@ date: '2020-04-21T16:58:51.000Z'
 
    在`src\manifest.json`中配置相关的模块，若是HBuilderX，则如下：
 
-   ![](../.gitbook/assets/2020-04-21-15-55-04%20%281%29.png)
+   ![](../.gitbook/assets/2020-04-21-15-55-04.png)
 
 2. 在项目中使用`plus.push.getClientInfo`获取客户端CID，方便后期针对性调试，例如：
 
@@ -140,7 +140,7 @@ date: '2020-04-21T16:58:51.000Z'
 
 若是使用真机调试，可使用
 
-![](../.gitbook/assets/2020-04-21-16-00-15%20%281%29.png)
+![](../.gitbook/assets/2020-04-21-16-00-15.png)
 
 此时，真机端需要通过USB连接电脑，且开启USB调试，然后
 
@@ -173,7 +173,7 @@ window下载：https://download.oracle.com/otn/java/jdk/8u251-b08/3d5a2bb8f8d442
 
 若使用HBuilder，则可以如下图所示，若还没appid等，按步骤进行即可
 
-![](../.gitbook/assets/2020-04-21-16-39-18%20%281%29.png)
+![](../.gitbook/assets/2020-04-21-16-39-18.png)
 
 ## 附加
 
